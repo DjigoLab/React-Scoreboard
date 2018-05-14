@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  .App-logo{
+
+  }
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.scoreboard{    padding: 15px;
+
+  background: #222;
+  color: whitesmoke;
+  margin: 50px;
+  border-radius: 20px;
+  
+    .player{
+      display: flex;
+      justify-content: space-between;
+      .player-score{
+        .counter{
+          
+          display: flex;
+          background: whitesmoke;
+          padding: 5px;
+          color: #222;
+          .counter-action-decrement{
+            background: brown;
+            color: white;
+          }
+          .counter-action-increment{
+            background: darkslategray;
+            color: whitesmoke;
+          }
+          .counter-score{
+            align-self: center;
+            padding: 5px;
+            border: 1px solid;
+          }
+        }
+      }
+    }
+  
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
