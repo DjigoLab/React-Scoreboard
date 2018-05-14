@@ -33,21 +33,33 @@ function Player(props) {
     <div className="player">
       <div className="player-name">{props.playerName}</div>
       <div className="player-score">
-        <Counter score={props.score} />
+        <Counter  />
       </div>
     </div>
   );
 }
 
-function Counter(props) {
-  return (
-    <div className="counter">
-      <button className="counter-action-decrement">-</button>
-      <div className="counter-score">{props.score}</div>
-      <button className="counter-action-increment">+</button>
-    </div>
-  );
+class Counter extends Component {
+    propTypes = {
+    score: PropTypes.number.isRequired
+  };
+
+  state =  {
+      score:0,
+    }
+  
+  
+    render() {
+    return (
+      <div className="counter">
+        <button className="counter-action-decrement">-</button>
+        <div className="counter-score">{this.state.score}</div>
+        <button className="counter-action-increment">+</button>
+      </div>
+    );
+  }
 }
+
 
 function Application(props) {
   return (
@@ -84,9 +96,6 @@ Application.defaultProps = {
 
 Player.propTypes = {
   playerName: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired
-};
-Counter.propTypes = {
   score: PropTypes.number.isRequired
 };
 
