@@ -33,33 +33,58 @@ function Player(props) {
     <div className="player">
       <div className="player-name">{props.playerName}</div>
       <div className="player-score">
-        <Counter  />
+        <Counter />
       </div>
     </div>
   );
 }
 
 class Counter extends Component {
-    propTypes = {
-    score: PropTypes.number.isRequired
+  static propTypes = {
+    score: PropTypes.number.isRequired,
   };
 
-  state =  {
-      score:0,
+  state = {
+    score: 0
+  };
+  getInitialState(){
+    return {
+      score : 0,
     }
-  
-  
-    render() {
+  }
+
+  incrementScore = () => {
+    this.setState({
+      score: this.state.score + 1
+    });
+  }
+
+  decrementScore = () => {
+    this.setState({
+      score: this.state.score - 1
+    });
+  }
+
+  render() {
     return (
       <div className="counter">
-        <button className="counter-action-decrement">-</button>
+        <button
+          className="counter-action-decrement"
+          onClick={this.decrementScore}
+        >
+          -
+        </button>
         <div className="counter-score">{this.state.score}</div>
-        <button className="counter-action-increment">+</button>
+        <button
+          className="counter-action-increment"
+          onClick={this.incrementScore}
+        >
+          +
+        </button>
       </div>
     );
   }
 }
-
 
 function Application(props) {
   return (
